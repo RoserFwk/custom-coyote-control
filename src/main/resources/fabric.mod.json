@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "custom-coyote-control",
+	"version": "${version}",
+	"name": "Custom Coyote Control",
+	"description": "e",
+	"authors": [
+		"RoserFwk",
+		"moechakucha"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/custom-coyote-control/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.roserfwk.ccc.CustomCoyoteControl"
+		],
+		"client": [
+			"com.roserfwk.ccc.client.CustomCoyoteControlClient"
+		]
+	},
+	"mixins": [
+		"custom-coyote-control.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.3-",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
