@@ -2,7 +2,6 @@ package com.roserfwk.ccc.client.commands;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.roserfwk.ccc.client.CustomCoyoteControlClient;
 import com.roserfwk.ccc.client.device.DeviceManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
@@ -23,14 +22,14 @@ public final class DeviceCommands {
 
                 var ret = new AtomicInteger(Command.SINGLE_SUCCESS);
 
-                DeviceManager.INSTANCE.connectAndInit().thenAcceptAsync(result -> {
+                DeviceManager.INSTANCE.connectAndInit().thenAccept(result -> {
                     if (result) {
                         ctx.getSource().sendFeedback(Component.literal("Successfully connected to the device"));
                     } else {
                         ctx.getSource().sendError(Component.literal("Failed to connect to the device"));
                         ret.set(0);
                     }
-                }, CustomCoyoteControlClient.EXECUTOR);
+                }).join();
 
                 return ret.get();
             });
