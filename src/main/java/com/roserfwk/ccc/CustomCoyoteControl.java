@@ -1,6 +1,7 @@
 package com.roserfwk.ccc;
 
 import com.roserfwk.ccc.commands.ControlCommands;
+import com.roserfwk.ccc.data.criteria.impl.Criteria;
 import com.roserfwk.ccc.data.rules.RuleTickHandler;
 import com.roserfwk.ccc.data.waveforms.WaveformManager;
 import com.roserfwk.ccc.network.ClientboundTriggerCoyotePacket;
@@ -33,6 +34,8 @@ public class CustomCoyoteControl implements ModInitializer {
 		RuleTickHandler.register();
 
 		ControlCommands.register();
+
+		Criteria.register();
 	}
 
 	public static Identifier id(String path) {

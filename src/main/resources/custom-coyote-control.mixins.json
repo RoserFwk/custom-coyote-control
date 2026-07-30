@@ -3,7 +3,10 @@
   "package": "com.roserfwk.ccc.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "AbstractArrowMixin",
+    "CombatTrackerMixin",
     "MinecraftServerMixin",
+    "PlayerMixin",
     "ReloadCommandMixin"
   ],
   "injectors": {
